@@ -1,2 +1,2 @@
-# tallerHlcomposer1
-Taller Hyperledger Composer
+# Taller Hyperledger Composer Jornada Blockchain
+
