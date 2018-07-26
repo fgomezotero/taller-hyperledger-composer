@@ -23,12 +23,12 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 
 ## Requisitos:
 Conectarte a: https://composer-playground.mybluemix.net
-1. Click en `Deploy a new business network` 
+1. Clic en `Deploy a new business network` 
 2. En nombre de la red de negocio, teclee `atuncadena`
 3. En tarjeta de admin de la red, type in `admin@atuncadena`
 4. En plantilla, select `empty-business-network`
-5. En la parte derecha, click `deploy`
-6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atuncadena, click `connect now`.
+5. En la parte derecha, clic `deploy`
+6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atuncadena, clic `connect now`.
 
 
 ## 1. Aprenda del lenguaje de modelado
@@ -42,6 +42,11 @@ Los recursos en Hyperledger Composer incluyen:
 - Activos, participantes, transacciones y eventos.
 - Tipos enumerados.
 - Conceptos.
+
+Después de hacer clic en 'connect now', debe llevarlo a su editor. En el lado izquierdo, verá un `model file`. Lo primero que debemos hacer es cambiar nuestro espacio de nombres así que escribamos `org.ibm.coffee` para el espacio de nombres.
+
+Comenzamos creando los participantes en la red. Primero crearemos una clase abstracta y luego crearemos las clases que heredarán a partir de ésta.
+
 
 
 
