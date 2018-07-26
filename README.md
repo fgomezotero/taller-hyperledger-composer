@@ -36,7 +36,12 @@ Hyperledger Composer incluye un lenguaje de modelado orientado a objetos que se 
 Un archivo .cto (archivo de modelo) de Hyperledger Composer se compone de los siguientes elementos:
 1. Un solo espacio de nombres. Todas las declaraciones de recursos dentro del archivo están implícitamente en este espacio de nombres.
 2. Un conjunto de definiciones de recursos, que abarca activos, transacciones, participantes y eventos.
-3. Optional import declarations that import resources from other namespaces.
+3. Declaraciones de importación opcionales de recursos pertenecientes a otros espacios de nombres.
+
+Los recursos en Hyperledger Composer incluyen:
+- Activos, participantes, transacciones y eventos.
+- Tipos enumerados.
+- Conceptos.
 
 
 
