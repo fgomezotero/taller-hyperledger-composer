@@ -19,7 +19,7 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 5. [Probando la red](#5-probando-la-red) 
 6. [Exportar la red de negocio](#6-exportar-la-red-negocio)
 7. [Desplegar en una red Fabric básica](#7-desplegar-en-una-red-fabric-básica)
-8. [Generar las API-Rest y una app en Angular](#8-generar las api-rest-y-una-app-en-angular)
+8. [Generar las API-Rest y una app en Angular](#8-generar-las-api-rest-y-una-app-en-angular)
 
 #Requisitos:
 Si estás conectado a la wifi Agesic conectarte a: http://10.240.65.206:8080/login, si tienes acceso a internet puedes conectarte a: https://composer-playground.mybluemix.net
