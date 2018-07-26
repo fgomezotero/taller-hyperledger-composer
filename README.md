@@ -12,7 +12,7 @@ Luego existe una entidad reguladora que se encarga de que las capturas realizada
 Nuestro rol será el del regulador, que se encargará de revisar que todas capturas cumplen con las regulaciones internacioles evitando la pezca ilegal. Utilizando una simple consulta para obtener la información de los ejemplares capturados.
 
 # Pasos:
-1. [Aprenda del lenguaje de modelado](#1-aprendiendo-del-lenguaje-de-modelado) 
+1. [Aprenda del lenguaje de modelado](#1-aprenda-del-lenguaje-de-modelado) 
 2. [Aprenda sobre las funciones del procesador de transacciones](#2-aprediendo-de-las-funciones-del-procesador-de-transacciones)
 3. [Aprenda de ACL](#3-aprenda-de-acl)
 4. [Aprenda como hacer consultas](#4-aprenda-como-hacer-consultas) 
@@ -21,7 +21,7 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 7. [Desplegar en una red Fabric básica](#7-desplegar-en-una-red-fabric-básica)
 8. [Generar las API-Rest y una app en Angular](#8-generar-las-api-rest-y-una-app-en-angular)
 
-#Requisitos:
+# Requisitos:
 Conectarte a: https://composer-playground.mybluemix.net
 1. Click en `Deploy a new business network` 
 2. En nombre de la red de negocio, teclee `atuncadena`
