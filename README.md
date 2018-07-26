@@ -22,13 +22,17 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 8. [Generar las API-Rest y una app en Angular](#8-generar-las-api-rest-y-una-app-en-angular)
 
 #Requisitos:
-Si estás conectado a la wifi Agesic conectarte a: http://10.240.65.206:8080/login, si tienes acceso a internet puedes conectarte a: https://composer-playground.mybluemix.net
+Conectarte a: https://composer-playground.mybluemix.net
 1. Click en `Deploy a new business network` 
 2. En nombre de la red de negocio, teclee `atuncadena`
 3. En tarjeta de admin de la red, type in `admin@atuncadena`
 4. En plantilla, select `empty-business-network`
 5. En la parte derecha, click `deploy`
 6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atuncadena, click `connect now`.
+
+
+## 1. Aprenda del lenguaje de modelado
+
 
 
 
