@@ -11,7 +11,7 @@ Luego existe una entidad reguladora que se encarga de que las capturas realizada
 ## Aclaración:
 Nuestro rol será el del regulador, que se encargará de revisar que todas capturas cumplen con las regulaciones internacioles evitando la pezca ilegal. Utilizando una simple consulta para obtener la información de los ejemplares capturados.
 
-# Pasos:
+## Pasos:
 1. [Aprenda del lenguaje de modelado](#1-aprenda-del-lenguaje-de-modelado) 
 2. [Aprenda sobre las funciones del procesador de transacciones](#2-aprediendo-de-las-funciones-del-procesador-de-transacciones)
 3. [Aprenda de ACL](#3-aprenda-de-acl)
@@ -21,7 +21,7 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 7. [Desplegar en una red Fabric básica](#7-desplegar-en-una-red-fabric-básica)
 8. [Generar las API-Rest y una app en Angular](#8-generar-las-api-rest-y-una-app-en-angular)
 
-# Requisitos:
+## Requisitos:
 Conectarte a: https://composer-playground.mybluemix.net
 1. Click en `Deploy a new business network` 
 2. En nombre de la red de negocio, teclee `atuncadena`
@@ -32,8 +32,11 @@ Conectarte a: https://composer-playground.mybluemix.net
 
 
 ## 1. Aprenda del lenguaje de modelado
-
-
+Hyperledger Composer incluye un lenguaje de modelado orientado a objetos que se utiliza para definir el modelo de la red de negocio.
+Un archivo .cto (archivo de modelo) de Hyperledger Composer se compone de los siguientes elementos:
+1. Un solo espacio de nombres. Todas las declaraciones de recursos dentro del archivo están implícitamente en este espacio de nombres.
+2. Un conjunto de definiciones de recursos, que abarca activos, transacciones, participantes y eventos.
+3. Optional import declarations that import resources from other namespaces.
 
 
 
