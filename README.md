@@ -47,6 +47,7 @@ Después de hacer clic en `connect now`, debe llevarlo a su editor. En el lado i
 
 Comenzamos creando los participantes en la red. Primero crearemos una clase abstracta y luego crearemos las clases que heredarán a partir de ésta.
 
+```
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -199,7 +200,7 @@ async function transferirAtun(atuntx) {
   	throw new Error('El id del atún que especificas no existe!');
   }
  }
-
+```
 
 
 
