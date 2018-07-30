@@ -109,7 +109,10 @@ concept Lugar {
   o Double latitud
   o Double longitud
 }
- 
+
+### Creación de los unumerativos
+El tipo enumerativo es usado para cuando un atributo tiene desde 1 a N posibles valores que son conocidos. Para nuestro ejemplo tenemos 3 enumerativos:
+``` 
 enum Estado {
   o LISTO_PARA_DISTRIBUCION
   o IMPORTADO
@@ -129,7 +132,11 @@ enum Propietario {
   o IMPORTADOR
   o EXPENDEDOR
 }
-  
+```
+
+## Creación de las transacciones
+Vamos a crear el esquema de datos de nuestras transacciones como se muestran a continuación:
+```
 transaction capturaAtun{
   o Double peso
   o Lugar lugarcaptura
@@ -144,7 +151,20 @@ transaction transferirAtun {
   o String atunId
   o Propietario tipo
 }
+```
+La transacción capturaAtun es la encargada de dar de alta en el registro las capturas de atún que se van realizando por los pescadores.
+Por otra parte la transacción  tranferiratun toma o se relaciona con dos tipos de Entidad, uno es el nuevo dueño y otro es el dueño anterior. el atributo tipo será el tipo de esperado del nuevo dueño del activo.
 
+Bien, esto es todo lo que por ahora vamos definir en el archivo .cto.
+
+
+## 2. Aprenda sobre las funciones del procesador de transacciones
+Ahora vamos a escribir el corazón de nuestra aplicación. El fichero .js nos permite añadir la lógica del negocio para cada una de las transacciones que creamos anteriormente.
+
+Necesitamos implementar dos transacciones. Para hacerlo, tenemos que crear primeramente nuestro fichero .js. Hacemos clic en `add a file` en la parte inferior de la barra o zona inquierda. Pulsamos en `Script file .js`, y luego `add`. Deberías de ver el fichero en la barra o zona lateral izquierda.
+
+### Creamos la transacción capturaAtun
+```
 /**
  * Transacción que simula la captura de un atun por un pescador
  * @param {org.taller.atun.capturaAtun} atuntx The send message instance.
@@ -165,8 +185,9 @@ async function capturaAtun(atuntx) {
   await assetRegistry.add(atun);
   await participantRegistry.update(atuntx.pescador);
 }
-
-
+```
+### Creamos la transacción transferirAtun
+```
 /**
  * Transferir un atún a un nuevo propietario.
  * @param {org.taller.atun.transferirAtun} atuntx The send message instance.
