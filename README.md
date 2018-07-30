@@ -235,3 +235,20 @@ async function transferirAtun(atuntx) {
 Hyperledger Composer incluye un lenguaje de control de acceso (ACL) que proporciona control de acceso declarativo sobre los elementos del modelo de negocio. Al definir las reglas
 de ACL, puede determinar qué usuarios / roles tienen permiso para crear, leer, actualizar o eliminar elementos en el modelo de red de megocio.
 
+Como estamos configurando una red básica, vamos a mantener el archivo por defecto que viene con la red que estamos modelando, no necesitamos modificar nada de este archivo. Para aprender más sobre las 
+ACL ir a https://hyperledger.github.io/composer/latest/reference/acl_language
+
+A continuación un pequeño ejemplo de una regla que pudiera aplicar a nuestro negocio:
+
+```
+rule EjemploReglaCondicional {
+    description: "Description of the ACL rule"
+    participant(p): "org.taller.atun.Entidad"
+    operation: ALL
+    resource(r): "org.taller.atun.Atun"
+    condition: (r.owner.getIdentifier() == p.getIdentifier())
+    action: ALLOW
+}
+```
+
+
