@@ -154,6 +154,15 @@ transaction transferirAtun {
   o Propietario tipo
 }
 ```
+## Creamos un evento para emitirlo que cada vez que cambie el dueño de una captura
+```
+event NewTransferEvent {
+  --> Atun atun
+  --> Entidad newOwner
+  --> Entidad oldOwner
+}
+```
+
 La transacción capturaAtun es la encargada de dar de alta en el registro las capturas de atún que se van realizando por los pescadores.
 Por otra parte la transacción  tranferiratun toma o se relaciona con dos tipos de Entidad, uno es el nuevo dueño y otro es el dueño anterior. el atributo tipo será el tipo de esperado del nuevo dueño del activo.
 
@@ -225,6 +234,14 @@ async function transferirAtun(atuntx) {
       atun.estado = "LISTO_PARA_LA_VENTA";
     }
     await assetRegistry.update(atun);
+    
+    // Emito un evento para el activo modificado
+    let event = getFactory().newEvent('org.taller.atun', 'NewTransferEvent');
+    event.atun = atun;
+    event.oldOwner = atuntx.oldOwner;
+    event.newOwner = atuntx.newOwner;
+    emit(event);
+    
   } else {
   	throw new Error('El id del atún que especificas no existe!');
   }
@@ -269,6 +286,11 @@ query getCapturaHistory {
   			WHERE (atunId == _$atunId ) 
 }
 ```
+Bien estamos listo para probar la red!!!.
+
+## 5. Probando la red
+
+
 
 
 
