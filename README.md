@@ -66,6 +66,7 @@ concept Direccion {
   o String pais default = "UY"
   o String cpostal regex=/^[0-9]{5}/ 
 }
+```
 
 ### Creación de los participantes
 Seguidamente creamos los participantes de nuestra definición de red de negocio los cuales heredan de la clase abstracta Entidad.
@@ -198,7 +199,7 @@ async function transferirAtun(atuntx) {
       await participantRegistry.update(atuntx.newOwner);
       atun.estado = "LISTO_PARA_LA_VENTA";
     }
-    await assetRegistry.update(atun);  
+    await assetRegistry.update(atun);
   } else {
   	throw new Error('El id del atún que especificas no existe!');
   }
