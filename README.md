@@ -232,4 +232,6 @@ async function transferirAtun(atuntx) {
 ```
 ## 3. Aprenda de ACL
 
+Hyperledger Composer incluye un lenguaje de control de acceso (ACL) que proporciona control de acceso declarativo sobre los elementos del modelo de negocio. Al definir las reglas
+de ACL, puede determinar qué usuarios / roles tienen permiso para crear, leer, actualizar o eliminar elementos en el modelo de red de megocio.
 
