@@ -13,7 +13,7 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 
 ## Pasos:
 1. [Aprenda del lenguaje de modelado](#1-aprenda-del-lenguaje-de-modelado) 
-2. [Aprenda sobre las funciones del procesador de transacciones](#2-aprediendo-de-las-funciones-del-procesador-de-transacciones)
+2. [Aprenda sobre las funciones del procesador de transacciones](#2-apreda-sobre-las-funciones-del-procesador-de-transacciones)
 3. [Aprenda de ACL](#3-aprenda-de-acl)
 4. [Aprenda como hacer consultas](#4-aprenda-como-hacer-consultas) 
 5. [Probando la red](#5-probando-la-red) 
