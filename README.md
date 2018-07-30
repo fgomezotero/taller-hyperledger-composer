@@ -109,9 +109,10 @@ concept Lugar {
   o Double latitud
   o Double longitud
 }
-
+```
 ### Creación de los unumerativos
 El tipo enumerativo es usado para cuando un atributo tiene desde 1 a N posibles valores que son conocidos. Para nuestro ejemplo tenemos 3 enumerativos:
+
 ``` 
 enum Estado {
   o LISTO_PARA_DISTRIBUCION
@@ -136,6 +137,7 @@ enum Propietario {
 
 ## Creación de las transacciones
 Vamos a crear el esquema de datos de nuestras transacciones como se muestran a continuación:
+
 ```
 transaction capturaAtun{
   o Double peso
@@ -164,6 +166,7 @@ Ahora vamos a escribir el corazón de nuestra aplicación. El fichero .js nos pe
 Necesitamos implementar dos transacciones. Para hacerlo, tenemos que crear primeramente nuestro fichero .js. Hacemos clic en `add a file` en la parte inferior de la barra o zona inquierda. Pulsamos en `Script file .js`, y luego `add`. Deberías de ver el fichero en la barra o zona lateral izquierda.
 
 ### Creamos la transacción capturaAtun
+
 ```
 /**
  * Transacción que simula la captura de un atun por un pescador
@@ -187,6 +190,7 @@ async function capturaAtun(atuntx) {
 }
 ```
 ### Creamos la transacción transferirAtun
+
 ```
 /**
  * Transferir un atún a un nuevo propietario.
