@@ -250,5 +250,26 @@ rule EjemploReglaCondicional {
     action: ALLOW
 }
 ```
+## 4. Aprenda como hacer consultas
+Ya casi estamos listo para probar la red de negocio. Vamos a construir dos consultas ambas con el fin de que el regulador pueda auditar las capturas.
+La primera es acceder a una captura específica y la otra devuelve el listado de las transacciones que se realizaron sobre determinada captura.
+
+```
+query getAtunItem{ 
+  description: "Te muestra una captura específica dado su id" 
+  statement: 
+  		SELECT org.taller.atun.Atun
+  			WHERE (atunId == _$atunId ) 
+}
+
+query getCapturaHistory { 
+  description: "Mostrar todos las transacciones realizadas sobre una captura" 
+  statement: 
+  		SELECT org.taller.atun.transferirAtun
+  			WHERE (atunId == _$atunId ) 
+}
+```
 
 
+
+ 
