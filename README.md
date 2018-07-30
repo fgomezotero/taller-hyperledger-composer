@@ -48,33 +48,29 @@ Después de hacer clic en `connect now`, debe llevarlo a su editor. En el lado i
 Comenzamos creando los participantes en la red. Primero crearemos una clase abstracta y luego crearemos las clases que heredarán a partir de ésta.
 
 ```
-/*
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace org.taller.atun
 
 abstract participant Entidad {
   o String organizacion
   o Direccion direccion
 }
+```
 
+La clase anterior requiere dos campos: la organizacion, que es de tipo String y la dirección que es de tipo concepto.
+Los conceptos son clases abstractas que no son no activos, ni participantes o transacciones.
+
+A continuación creamos el concepto Direccion:
+```
 concept Direccion {
   o String ciudad optional
   o String pais default = "UY"
   o String cpostal regex=/^[0-9]{5}/ 
 }
 
+### Creación de los participantes
+Seguidamente creamos los participantes de nuestra definición de red de negocio los cuales heredan de la clase abstracta Entidad.
+
+```
 participant Pescador identified by pescadorId extends Entidad {
   o String pescadorId
 }
@@ -90,7 +86,14 @@ participant Regulador identified by reguladorId extends Entidad{
 participant Expendedor identified by expendedorId extends Entidad{
   o String expendedorId
 }
-  
+
+```
+
+### Creación del activo
+Ahora vamos a crear nuestro primer activo, este es el activo Atun. Tenemos que tener un identificador único del activo
+`atunid` por el cual vamos a realizar la consulta de un determinado activo. Recuerde que el rol del regulador es consultar las capturas para ver cual fue realizada ilegalmente.
+
+```
 asset Atun identified by atunId {
   o String atunId
   o Double peso
