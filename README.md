@@ -17,7 +17,7 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 3. [Aprenda de ACL](#3-aprenda-de-acl)
 4. [Aprenda como hacer consultas](#4-aprenda-como-hacer-consultas) 
 5. [Probando la red](#5-probando-la-red) 
-6. [Exportar la red de negocio](#6-exportar-la-red-negocio)
+6. [Exportar la red de negocio](#6-exportar-la-red-de-negocio)
 7. [Desplegar en una red Fabric básica](#7-desplegar-en-una-red-fabric-básica)
 8. [Generar las API-Rest y una app en Angular](#8-generar-las-api-rest-y-una-app-en-angular)
 
