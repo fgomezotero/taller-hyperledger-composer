@@ -284,13 +284,111 @@ query getCapturaHistory {
   statement: 
   		SELECT org.taller.atun.transferirAtun
   			WHERE (atunId == _$atunId ) 
+  				ORDER BY [timestamp]
 }
 ```
 Bien estamos listo para probar la red!!!.
 
 ## 5. Probando la red
+Para probar la red, hacemos clic en el tab `test` , en la parte superior de la página. Primeramente vamos a crear los participantes y luego vamos a ejecutar la transacción capturaAtun para 
+añadir nuevas capturas a la red. Clic en `Create new participant` una vez seleccionado el participante adecuado.
 
+### Creando los participantes
+Ahora damos clic en el particpante Pescador y añadimos el siguiente json:
+```
+{
+  "$class": "org.taller.atun.Pescador",
+  "pescadorId": "pescador1",
+  "organizacion": "Emp1",
+  "direccion": {
+    "$class": "org.taller.atun.Direccion",
+    "pais": "UY",
+    "cpostal": "11000"
+  }
+}
+```
 
+Ahora, damos clic en el Importador y añaadimos el siguiente json:
+
+```
+{
+  "$class": "org.taller.atun.Importador",
+  "importadorId": "importador1",
+  "organizacion": "Emp2",
+  "direccion": {
+    "$class": "org.taller.atun.Direccion",
+    "pais": "UY",
+    "cpostal": "11000"
+  }
+}
+```
+Ahora, damos clic en el Expendedor y añadimos el siguiente json:
+
+```
+{
+  "$class": "org.taller.atun.Expendedor",
+  "expendedorId": "expendedor1",
+  "organizacion": "Emp3",
+  "direccion": {
+    "$class": "org.taller.atun.Direccion",
+    "pais": "UY",
+    "cpostal": "11300"
+  }
+}
+``` 
+### Creando el activo
+Una vez creados los participantes de la red podemos crear el activo atun manualmente o a través de ejecutar la transacción capturaAtun. En caso de que queramos hacerlo manualmente
+damos clic en el activo Atun y luego al botón `+ Create New Asset` y añadimos el siguiente json:
+
+``` 
+{
+  "$class": "org.taller.atun.Atun",
+  "atunId": "atun1",
+  "peso": 30,
+  "lugarcaptura": {
+    "$class": "org.taller.atun.Lugar",
+    "latitud": -57.1,
+    "longitud": -34.34
+  },
+  "tipo": "ROJO",
+  "estado": "LISTO_PARA_DISTRIBUCION",
+  "pesquero": "Pesquero1",
+  "owner": "resource:org.taller.atun.Pescador#pescador1"
+}
+``` 
+No obstante podemos hacer uso de la transacción capturaAtun, para ello damos clic en el botón `Submit Transaccion` y escogemos la transacción capturaAtun. En este caso no es necesario 
+añadir todos los datos anteriores porque la misma lógica de implementación de la transacción genera el atunId.
+
+### Enviando la transacción transferirAtun
+Ahora vamos a realizar el mismo proceso anterior pero escogiendo la transacción transferirAtun, la cual cambiara el dueño del atun en la cadena de suministro, así como el estado del activo 
+Pegamos el siguiente fragmento json:
+
+```
+{
+  "$class": "org.taller.atun.transferirAtun",
+  "newOwner": "resource:org.taller.atun.Importador#importador1",
+  "oldOwner": "resource:org.taller.atun.Pescador#pescador1",
+  "atunId": "atun1",
+  "tipo": "IMPORTADOR"
+}
+```
+Seguimos hacia delante en la cadena de suministro y volvemos a ejecutar el paso anterior, pero ahora con el siguiente json:
+
+```
+{
+ "$class": "org.taller.atun.transferirAtun",
+ "newOwner": "resource:org.taller.atun.Expendedor#expendedor1",
+ "oldOwner": "resource:org.taller.atun.Importador#Importador1",
+ "atunId": "atun1",
+ "tipo": "EXPENDEDOR"
+}
+```
+Si chequemos el activo vemos que el estado es `LISTO_PARA_LA_VENTA`, es decir que el dueño es ahora el expendedor.
+Bien ya hemos simulado la transferencia de un activo en la blockchain.
+
+## 6. Exportar la red de negocio
+Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automaticamente de descargará un fichero con extensión .bna(Business Network Archive).
+Dicho fichero contiene la información necesaria para instalar la red de negocio en los peer.
 
 
 
