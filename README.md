@@ -387,7 +387,7 @@ Si chequemos el activo vemos que el estado es `LISTO_PARA_LA_VENTA`, es decir qu
 Bien ya hemos simulado la transferencia de un activo en la blockchain.
 
 ## 6. Exportar la red de negocio
-Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automaticamente de descargará un fichero con extensión .bna(Business Network Archive).
+Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automaticamente se descargará un fichero con extensión .bna (Business Network Archive).
 Dicho fichero contiene la información necesaria para instalar la red de negocio en los peer.
 
 
