@@ -390,8 +390,26 @@ Bien ya hemos simulado la transferencia de un activo en la blockchain.
 Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automaticamente se descargará un fichero con extensión .bna (Business Network Archive).
 Dicho fichero contiene la información necesaria para instalar la red de negocio en los peer.
 
+## 7. Desplegar en una red Fabric básica
+Después de crear el archivo .bna, la red de negocio se puede implementar en la instancia de Hyperledger Fabric. Normalmente, se requiere información del administrador de Fabric para crear una identidad PeerAdmin, 
+con privilegios para instalar la chaincode en los peer, así como también iniciar la chaincode en el canal. Sin embargo, como parte de la instalación del entorno de desarrollo, ya se ha creado una identidad PeerAdmin.
 
+Después de que se haya instalado la red de negocio, ya podemos iniciarla. Para mejores prácticas, se debe crear una nueva identidad para administrar la red de negocio después de la implementación. Esta identidad se conoce como administrador de red de negocio.
 
+### Intalando la red de negocio
 
+```
+#composer network install --card PeerAdmin@hlfv1 --archiveFile atuncadena.bna
+```
+Es muy importante que guardemos el número de la versión que nos devuelve el comando anterior, dado que nos va a hacer falta más adelante.
 
+### Para iniciar la red de negocio
+```
+#composer network start --networkName atuncadena --networkVersion version_devuelta_cmd_anterior --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+```
+
+### Importar la identidad del administrador de red como una tarjeta de red de negocio utilizable
+```
+#composer card import --file networkadmin.card
+```
  
