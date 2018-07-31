@@ -43,7 +43,7 @@ Los recursos en Hyperledger Composer incluyen:
 - Tipos enumerados.
 - Conceptos.
 
-Después de hacer clic en `connect now`, debe llevarlo a su editor. En el lado izquierdo, verá un `model file`. Lo primero que debemos hacer es cambiar nuestro espacio de nombres así que escribamos `org.ibm.coffee` para el espacio de nombres.
+Después de hacer clic en `connect now`, debe llevarlo a su editor. En el lado izquierdo, verá un `model file`. Lo primero que debemos hacer es cambiar nuestro espacio de nombres así que escribamos `org.taller.atun` para el espacio de nombres.
 
 Comenzamos creando los participantes en la red. Primero crearemos una clase abstracta y luego crearemos las clases que heredarán a partir de ésta.
 
