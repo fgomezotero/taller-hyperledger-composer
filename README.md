@@ -422,4 +422,15 @@ Es muy importante que guardemos el número de la versión que nos devuelve el co
 ## 8. Generar las API-Rest y una app en Angular
 Hyperledger Composer puede generar una API REST a medida basada en una red de negocio. Para desarrollar una aplicación web, la API REST proporciona una capa útil de abstracción de lenguaje.
 
+```
+#composer-rest-server
+```
+
+Hyperledger Composer también puede generar una aplicación Angular ejecutándose contra la API REST.
+
+```
+#yo hyperledger-composer:angular
+```
+Luego nos movemos para la carpeta del proyecto creado y ejecutamos: `#npm start`
+
 
