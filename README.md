@@ -431,4 +431,4 @@ Hyperledger Composer también puede generar una aplicación Angular ejecutándos
 ```
 #yo hyperledger-composer:angular
 ```
-Luego nos movemos para la carpeta del proyecto creado y ejecutamos: `#npm start`
+Luego nos movemos para la carpeta del proyecto creado y ejecutamos: `#npm start`.
