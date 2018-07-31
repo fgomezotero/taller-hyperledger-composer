@@ -396,7 +396,7 @@ con privilegios para instalar la chaincode en los peer, así como también inici
 
 Después de que se haya instalado la red de negocio, ya podemos iniciarla. Para mejores prácticas, se debe crear una nueva identidad para administrar la red de negocio después de la implementación. Esta identidad se conoce como administrador de red de negocio.
 
-### Intalando la red de negocio
+### Instalando la red de negocio
 
 ```
 #composer network install --card PeerAdmin@hlfv1 --archiveFile atuncadena.bna
@@ -412,4 +412,14 @@ Es muy importante que guardemos el número de la versión que nos devuelve el co
 ```
 #composer card import --file networkadmin.card
 ```
- 
+
+### Comprobar si la red fue desplegada correctamente
+
+```
+#composer network ping --card admin@atuncadena
+```
+
+## 8. Generar las API-Rest y una app en Angular
+Hyperledger Composer puede generar una API REST a medida basada en una red de negocio. Para desarrollar una aplicación web, la API REST proporciona una capa útil de abstracción de lenguaje.
+
+
