@@ -24,11 +24,11 @@ Nuestro rol será el del regulador, que se encargará de revisar que todas captu
 ## Requisitos:
 Conectarte a: https://composer-playground.mybluemix.net
 1. Clic en `Deploy a new business network` 
-2. En nombre de la red de negocio, teclee `atuncadena`
-3. En tarjeta de admin de la red, type in `admin@atuncadena`
+2. En nombre de la red de negocio, teclee `atun-network`
+3. En tarjeta de admin de la red, type in `admin@atun-network`
 4. En plantilla, select `empty-business-network`
 5. En la parte derecha, clic `deploy`
-6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atuncadena, clic `connect now`.
+6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atun-network, clic `connect now`.
 
 
 ## 1. Aprenda del lenguaje de modelado
@@ -399,13 +399,13 @@ Después de que se haya instalado la red de negocio, ya podemos iniciarla. Para 
 ### Instalando la red de negocio
 
 ```
-#composer network install --card PeerAdmin@hlfv1 --archiveFile atuncadena.bna
+#composer network install --card PeerAdmin@hlfv1 --archiveFile atun-network.bna
 ```
 Es muy importante que guardemos el número de la versión que nos devuelve el comando anterior, dado que nos va a hacer falta más adelante.
 
 ### Para iniciar la red de negocio
 ```
-#composer network start --networkName atuncadena --networkVersion version_devuelta_cmd_anterior --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+#composer network start --networkName atun-network --networkVersion version_devuelta_cmd_anterior --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
 ```
 
 ### Importar la identidad del administrador de red como una tarjeta de red de negocio utilizable
@@ -416,7 +416,7 @@ Es muy importante que guardemos el número de la versión que nos devuelve el co
 ### Comprobar si la red fue desplegada correctamente
 
 ```
-#composer network ping --card admin@atuncadena
+#composer network ping --card admin@atun-network
 ```
 
 ## 8. Generar las API-Rest y una app en Angular
