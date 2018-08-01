@@ -3,9 +3,9 @@
 Nuestro propósito con la elaboración de este taller es que los participantes una vez concluido el mismo, cuenten con los conocimientos necesarios para abordar el desarrollo y modelado 
 de un negocio con la herramienta Hyperledger Composer, además de estimular el estudio en profundidad de esta tecnología.
 
-Partiendo de esta premisa tenemos como objetivo elaborar una guía en forma de tutorial que modela un caso de negocio utilizando el frawework Hyperledger Composer.
+Partiendo de esta premisa tenemos como objetivo elaborar una guía en forma de tutorial que modela un caso de uso utilizando el frawework Hyperledger Composer.
 
-## Caso de uso: Cadena suministro de Atún
+## Caso de Uso: Cadena suministro de Atún
 Vamos a crear una red blockchain genérica que modele una cadena de suministro de atún, desde que los ejemplares son capturados hasta que están listo para ser adquiridos en venta.
 El proceso comienza con el pescador que realiza las capturas de los ejemplares en alta mar, registrando dicha captura en la blockchain (id, peso, tipo, latitud, longitud, propietario, pesquero) 
 y continua en el importador que compra los ejemplares a los pescadores. Luego existe una entidad reguladora que se encarga de que las capturas realizadas sean legales revisando las zonas de pescas 
