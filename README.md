@@ -1,18 +1,17 @@
 # Taller Hyperledger Composer - Jornada Blockchain
 
-Nuestro propósito con la elaboración de este taller es que los participantes una vez concluido el mismo, cuenten con los conocimientos necesarios para abordar el desarrollo y modelado 
+Nuestro propósito con la elaboración de este taller es que los participantes, una vez concluido el mismo, cuenten con los conocimientos necesarios para abordar el desarrollo y modelado 
 de un negocio con la herramienta Hyperledger Composer, además de estimular el estudio en profundidad de esta tecnología.
 
 Partiendo de esta premisa tenemos como objetivo elaborar una guía en forma de tutorial que modela un caso de uso utilizando el frawework Hyperledger Composer.
 
-## Caso de Uso: Cadena suministro de Atún
-Vamos a crear una red blockchain genérica que modele una cadena de suministro de atún, desde que los ejemplares son capturados hasta que están listo para ser adquiridos en venta.
-El proceso comienza con el pescador que realiza las capturas de los ejemplares en alta mar, registrando dicha captura en la blockchain (id, peso, tipo, latitud, longitud, propietario, pesquero) 
-y continua en el importador que compra los ejemplares a los pescadores. Luego existe una entidad reguladora que se encarga de que las capturas realizadas sean legales revisando las zonas de pescas 
-de cada ejemplar y finalmente los ejemplares de atún se mueven en la cadena de suministro hacia el expendedor que será el encargado de su venta.
+## Caso de Uso: Cadena de suministro de Atún
+Vamos a crear una red blockchain genérica que modele una cadena de suministro de atún, desde que los ejemplares son capturados hasta que están listos para ser adquiridos en venta.
+El proceso comienza con el pescador que realiza las capturas de los ejemplares en alta mar, registrando dicha captura en la blockchain a partir de diversos campos (id, peso, tipo, latitud, longitud, propietario, pesquero) 
+y continúa en el importador que compra los ejemplares a los pescadores. Existe una entidad reguladora que se encarga de que las capturas realizadas sean legales revisando las zonas de pesca de cada ejemplar y finalmente los ejemplares de atún se mueven en la cadena de suministro hacia el expendedor que será el encargado de su venta.
 
 ## Aclaración:
-El rol de regulador lo haremos nosotros, utilizando una series de consulta para obtener la información de los ejemplares capturados.
+El rol de regulador lo asumiremos nosotros, utilizando una serie de consultas para obtener la información de los ejemplares capturados.
 
 ## Pasos:
 1. [Aprenda del lenguaje de modelado](#1-aprenda-del-lenguaje-de-modelado) 
@@ -27,19 +26,19 @@ El rol de regulador lo haremos nosotros, utilizando una series de consulta para 
 ## Requisitos:
 Conectarte a: https://composer-playground.mybluemix.net
 1. Clic en `Deploy a new business network` 
-2. En nombre de la red de negocio, teclee `atun-network`
-3. En tarjeta de admin de la red, type in `admin@atun-network`
-4. En plantilla, select `empty-business-network`
-5. En la parte derecha, clic `deploy`
-6. Seguidamente le mostrará una página con la red que acabamos de crear. En la red atun-network, clic `connect now`.
+2. En "nombre de la red de negocio", digite `atun-network`
+3. En "tarjeta de admin de la red", digite in `admin@atun-network`
+4. En "plantilla", elija `empty-business-network`
+5. En la parte derecha, haga clic en`deploy`
+6. Seguidamente se mostrará una página con la red que acabamos de crear. En la red atun-network, haga clic en `connect now`.
 
 
 ## 1. Aprenda del lenguaje de modelado
 Hyperledger Composer incluye un lenguaje de modelado orientado a objetos que se utiliza para definir el modelo de la red de negocio.
 Un archivo .cto (archivo de modelo) de Hyperledger Composer se compone de los siguientes elementos:
-1. Un solo espacio de nombres. Todas las declaraciones de recursos dentro del archivo están implícitamente en este espacio de nombres.
+1. Un solo espacio de nombres. Todas las declaraciones de recursos dentro del archivo están implícitas en este espacio de nombres.
 2. Un conjunto de definiciones de recursos, que abarca activos, transacciones, participantes y eventos.
-3. Declaraciones de importación opcionales de recursos pertenecientes a otros espacios de nombres.
+3. Declaraciones de importación de recursos opcionales pertenecientes a otros espacios de nombres.
 
 Los recursos en Hyperledger Composer incluyen:
 - Activos, participantes, transacciones y eventos.
@@ -59,8 +58,8 @@ abstract participant Entidad {
 }
 ```
 
-La clase anterior requiere dos campos: la organizacion, que es de tipo String y la dirección que es de tipo concepto.
-Los conceptos son clases abstractas que no son no activos, ni participantes o transacciones.
+La clase anterior requiere dos campos: la organización, que es de tipo String y la dirección que es de tipo concepto.
+Los conceptos son clases abstractas que no son activos, ni participantes ni transacciones.
 
 A continuación creamos el concepto Direccion:
 ```
@@ -72,7 +71,7 @@ concept Direccion {
 ```
 
 ### Creación de los participantes
-Seguidamente creamos los participantes de nuestra definición de red de negocio los cuales heredan de la clase abstracta Entidad.
+Seguidamente creamos los participantes de nuestra definición de red de negocio, que heredan de la clase abstracta Entidad.
 
 ```
 participant Pescador identified by pescadorId extends Entidad {
@@ -90,8 +89,8 @@ participant Expendedor identified by expendedorId extends Entidad{
 ```
 
 ### Creación del activo
-Ahora vamos a crear nuestro primer activo, este es el activo Atun. Tenemos que tener un identificador único del activo
-`atunid` por el cual vamos a realizar la consulta de un determinado activo. Recuerde que el rol del regulador es consultar las capturas para ver cual fue realizada ilegalmente.
+Ahora vamos a crear nuestro primer activo, Atun. Tenemos que tener un identificador único del activo
+`atunid` por el cual vamos a realizar la consulta de un determinado activo. Recuerde que el rol del regulador es consultar las capturas para ver cuál fue realizada ilegalmente.
 
 ```
 asset Atun identified by atunId {
@@ -135,7 +134,7 @@ enum Propietario {
 ```
 
 ## Creación de las transacciones
-Vamos a crear el esquema de datos de nuestras transacciones como se muestran a continuación:
+Vamos a crear el esquema de datos de nuestras transacciones como se muestra a continuación:
 
 ```
 transaction capturaAtun{
@@ -163,15 +162,15 @@ event NewTransferEvent {
 ```
 
 La transacción capturaAtun es la encargada de dar de alta en el registro las capturas de atún que se van realizando por los pescadores.
-Por otra parte la transacción  tranferiratun toma o se relaciona con dos tipos de Entidad, uno es el nuevo dueño y otro es el dueño anterior. el atributo tipo será el tipo de esperado del nuevo dueño del activo.
+Por otra parte, la transacción  tranferiratun toma o se relaciona con dos tipos de Entidad, uno es el nuevo dueño y otro es el dueño anterior. El atributo tipo será el tipo esperado del nuevo dueño del activo.
 
-Bien, esto es todo lo que por ahora vamos definir en el archivo .cto.
+Esto es todo lo que, por ahora, definiremos en el archivo .cto.
 
 
 ## 2. Aprenda sobre las funciones del procesador de transacciones
 Ahora vamos a escribir el corazón de nuestra aplicación. El fichero .js nos permite añadir la lógica del negocio para cada una de las transacciones que creamos anteriormente.
 
-Necesitamos implementar dos transacciones. Para hacerlo, tenemos que crear primeramente nuestro fichero .js. Hacemos clic en `add a file` en la parte inferior de la barra o zona inquierda. Pulsamos en `Script file .js`, y luego `add`. Deberías de ver el fichero en la barra o zona lateral izquierda.
+Necesitamos implementar dos transacciones. Para hacerlo, tenemos que crear primeramente nuestro fichero .js. Hacemos clic en `add a file` en la parte inferior de la barra o zona izquierda. Pulsamos en `Script file .js`, y luego `add`. Debería ver el fichero en la barra o zona lateral izquierda.
 
 ### Creamos la transacción capturaAtun
 
@@ -265,12 +264,12 @@ async function transferirAtun(atuntx) {
 ## 3. Aprenda de ACL
 
 Hyperledger Composer incluye un lenguaje de control de acceso (ACL) que proporciona control de acceso declarativo sobre los elementos del modelo de negocio. Al definir las reglas
-de ACL, puede determinar qué usuarios / roles tienen permiso para crear, leer, actualizar o eliminar elementos en el modelo de red de megocio.
+de ACL, puede determinar qué usuarios / roles tienen permiso para crear, leer, actualizar o eliminar elementos en el modelo de red de negocio.
 
 Como estamos configurando una red básica, vamos a mantener el archivo por defecto que viene con la red que estamos modelando, no necesitamos modificar nada de este archivo. Para aprender más sobre las 
-ACL ir a https://hyperledger.github.io/composer/latest/reference/acl_language
+ACL diríjase a https://hyperledger.github.io/composer/latest/reference/acl_language
 
-A continuación un pequeño ejemplo de una regla que pudiera aplicar a nuestro negocio:
+A continuación, un pequeño ejemplo de una regla que podemos aplicar a nuestro negocio:
 
 ```
 rule EjemploReglaCondicional {
@@ -306,10 +305,10 @@ Bien estamos listo para probar la red!!!.
 
 ## 5. Probando la red
 Para probar la red, hacemos clic en el tab `test` , en la parte superior de la página. Primeramente vamos a crear los participantes y luego vamos a ejecutar la transacción capturaAtun para 
-añadir nuevas capturas a la red. Clic en `Create new participant` una vez seleccionado el participante adecuado.
+añadir nuevas capturas a la red. Clic en `Create new participant` una vez seleccionado el participante requerido.
 
 ### Creando los participantes
-Ahora damos clic en el particpante Pescador y añadimos el siguiente json:
+Ahora damos clic en el participante Pescador y añadimos el siguiente json:
 ```
 {
   "$class": "org.taller.atun.Pescador",
@@ -323,7 +322,7 @@ Ahora damos clic en el particpante Pescador y añadimos el siguiente json:
 }
 ```
 
-Ahora, damos clic en el Importador y añaadimos el siguiente json:
+Ahora, damos clic en el Importador y añadimos el siguiente json:
 
 ```
 {
@@ -352,8 +351,8 @@ Ahora, damos clic en el Expendedor y añadimos el siguiente json:
 }
 ``` 
 ### Creando el activo
-Una vez creados los participantes de la red podemos crear el activo atun manualmente o a través de ejecutar la transacción capturaAtun. En caso de que queramos hacerlo manualmente
-damos clic en el activo Atun y luego al botón `+ Create New Asset` y añadimos el siguiente json:
+Una vez creados los participantes de la red podemos crear el activo atun manualmente o a través de la ejecución de la transacción capturaAtun. En caso de que queramos hacerlo manualmente
+damos clic en el activo Atun y luego al botón `+ Create New Asset`, añadiendo luego el siguiente json:
 
 ``` 
 {
@@ -371,11 +370,11 @@ damos clic en el activo Atun y luego al botón `+ Create New Asset` y añadimos 
   "owner": "resource:org.taller.atun.Pescador#pescador1"
 }
 ``` 
-No obstante podemos hacer uso de la transacción capturaAtun, para ello damos clic en el botón `Submit Transaccion` y escogemos la transacción capturaAtun. En este caso no es necesario 
+Podemos hacer uso de la transacción capturaAtun; para ello damos clic en el botón `Submit Transaccion` y escogemos la transacción capturaAtun. En este caso no es necesario 
 añadir todos los datos anteriores porque la misma lógica de implementación de la transacción genera el atunId.
 
 ### Enviando la transacción transferirAtun
-Ahora vamos a realizar el mismo proceso anterior pero escogiendo la transacción transferirAtun, la cual cambiara el dueño del atun en la cadena de suministro, así como el estado del activo 
+Ahora vamos a realizar el proceso anterior pero escogiendo la transacción transferirAtun, la cual cambiará el dueño del atun en la cadena de suministro, así como el estado del activo. 
 Pegamos el siguiente fragmento json:
 
 ```
@@ -398,18 +397,17 @@ Seguimos hacia delante en la cadena de suministro y volvemos a ejecutar el paso 
  "tipo": "EXPENDEDOR"
 }
 ```
-Si chequemos el activo vemos que el estado es `LISTO_PARA_LA_VENTA`, es decir que el dueño es ahora el expendedor.
-Bien ya hemos simulado la transferencia de un activo en la blockchain.
+Si verificamos el activo vemos que el estado es `LISTO_PARA_LA_VENTA`, es decir que el dueño es ahora el expendedor: hemos simulado la transferencia de un activo en la blockchain.
 
 ## 6. Exportar la red de negocio
-Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automaticamente se descargará un fichero con extensión .bna (Business Network Archive).
+Haga Clic en `define` en la parte superior de la página. Luego damos clic en `export` en la zona izquierda. Automáticamente se descargará un fichero con extensión .bna (Business Network Archive).
 Dicho fichero contiene la información necesaria para instalar la red de negocio en los peer.
 
 ## 7. Desplegar en una red Fabric básica
 Después de crear el archivo .bna, la red de negocio se puede implementar en la instancia de Hyperledger Fabric. Normalmente, se requiere información del administrador de Fabric para crear una identidad PeerAdmin, 
 con privilegios para instalar la chaincode en los peer, así como también iniciar la chaincode en el canal. Sin embargo, como parte de la instalación del entorno de desarrollo, ya se ha creado una identidad PeerAdmin.
 
-Después de que se haya instalado la red de negocio, ya podemos iniciarla. Para mejores prácticas, se debe crear una nueva identidad para administrar la red de negocio después de la implementación. Esta identidad se conoce como administrador de red de negocio.
+Después de que se haya instalado la red de negocio podemos iniciarla. Para mejores prácticas, se debe crear una nueva identidad para administrar la red de negocio después de la implementación. Esta identidad se conoce como administrador de red de negocio.
 
 ### Instalando la red de negocio
 
