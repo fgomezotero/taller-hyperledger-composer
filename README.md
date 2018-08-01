@@ -1,15 +1,18 @@
 # Taller Hyperledger Composer - Jornada Blockchain
 
-Nuestro taller tiene como objetivo construir una red básica de blockchain Hyperledger Fabric utilizando el framework Hyperledger Composer y algunas herramientas para definir la definición del negocio que se va a modelar en la blockchain.
-Todos los archivos incluidos en este repositorio, son el resultado de usar este archivo README como tutorial.
+Nuestro propósito con la elaboración de este taller es que los participantes una vez concluido el mismo, cuenten con los conocimientos necesarios para abordar el desarrollo y modelado 
+de un negocio con la herramienta Hyperledger Composer, además de estimular el estudio en profundidad de esta tecnología.
+
+Partiendo de esta premisa tenemos como objetivo elaborar una guía en forma de tutorial que modela un caso de negocio utilizando el frawework Hyperledger Composer.
 
 ## Caso de uso: Cadena suministro de Atún
-Vamos a crear una red blockchain genérica que modele una cadena de suministro de atún desde, que los ejemplares son capturados hasta que están listo para ser adquiridos en venta.
-El proceso comienza con el pescador que realiza las capturas de los ejemplares en alta mar registrando en la blockchain (id, peso, tipo, estado,latitud, longitud, propietario, pesquero) y continua en el importador que compra los ejemplares a los pescadores.
-Luego existe una entidad reguladora que se encarga de que las capturas realizadas sean legales revisando las zonas de pescas de cada ejemplar y finalmente los ejemplares de atún se mueven en la cadena de suministro hacia el expendedor que será el encargado de su venta.
+Vamos a crear una red blockchain genérica que modele una cadena de suministro de atún, desde que los ejemplares son capturados hasta que están listo para ser adquiridos en venta.
+El proceso comienza con el pescador que realiza las capturas de los ejemplares en alta mar, registrando dicha captura en la blockchain (id, peso, tipo, latitud, longitud, propietario, pesquero) 
+y continua en el importador que compra los ejemplares a los pescadores. Luego existe una entidad reguladora que se encarga de que las capturas realizadas sean legales revisando las zonas de pescas 
+de cada ejemplar y finalmente los ejemplares de atún se mueven en la cadena de suministro hacia el expendedor que será el encargado de su venta.
 
 ## Aclaración:
-Nuestro rol será el del regulador, que se encargará de revisar que todas capturas cumplen con las regulaciones internacioles evitando la pezca ilegal. Utilizando una simple consulta para obtener la información de los ejemplares capturados.
+El rol de regulador lo haremos nosotros, utilizando una series de consulta para obtener la información de los ejemplares capturados.
 
 ## Pasos:
 1. [Aprenda del lenguaje de modelado](#1-aprenda-del-lenguaje-de-modelado) 
@@ -78,10 +81,6 @@ participant Pescador identified by pescadorId extends Entidad {
 
 participant Importador identified by importadorId extends Entidad {
      o String importadorId
-}
-
-participant Regulador identified by reguladorId extends Entidad{
-  o String reguladorId
 }
 
 participant Expendedor identified by expendedorId extends Entidad{
