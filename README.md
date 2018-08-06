@@ -308,34 +308,7 @@ Para probar la red, hacemos clic en el tab `test` , en la parte superior de la p
 añadir nuevas capturas a la red. Clic en `Create new participant` una vez seleccionado el participante requerido.
 
 ### Creando los participantes
-Ahora damos clic en el participante Pescador y añadimos el siguiente json:
-```
-{
-  "$class": "org.taller.atun.Pescador",
-  "pescadorId": "pescador1",
-  "organizacion": "Emp1",
-  "direccion": {
-    "$class": "org.taller.atun.Direccion",
-    "pais": "UY",
-    "cpostal": "11000"
-  }
-}
-```
 
-Ahora, damos clic en el Importador y añadimos el siguiente json:
-
-```
-{
-  "$class": "org.taller.atun.Importador",
-  "importadorId": "importador1",
-  "organizacion": "Emp2",
-  "direccion": {
-    "$class": "org.taller.atun.Direccion",
-    "pais": "UY",
-    "cpostal": "11000"
-  }
-}
-```
 Ahora, damos clic en el Expendedor y añadimos el siguiente json:
 
 ```
@@ -350,6 +323,36 @@ Ahora, damos clic en el Expendedor y añadimos el siguiente json:
   }
 }
 ``` 
+Ahora, damos clic en el Importador y añadimos el siguiente json:
+
+```
+{
+  "$class": "org.taller.atun.Importador",
+  "importadorId": "importador1",
+  "organizacion": "Emp2",
+  "direccion": {
+    "$class": "org.taller.atun.Direccion",
+    "pais": "UY",
+    "cpostal": "11000"
+  }
+}
+```
+
+Ahora damos clic en el Pescador y añadimos el siguiente json:
+
+```
+{
+  "$class": "org.taller.atun.Pescador",
+  "pescadorId": "pescador1",
+  "organizacion": "Emp1",
+  "direccion": {
+    "$class": "org.taller.atun.Direccion",
+    "pais": "UY",
+    "cpostal": "11000"
+  }
+}
+```
+
 ### Creando el activo
 Una vez creados los participantes de la red podemos crear el activo atun manualmente o a través de la ejecución de la transacción capturaAtun. En caso de que queramos hacerlo manualmente
 damos clic en el activo Atun y luego al botón `+ Create New Asset`, añadiendo luego el siguiente json:
