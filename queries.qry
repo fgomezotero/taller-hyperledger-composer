@@ -1,0 +1,14 @@
+query getAtunItem{ 
+  description: "Te muestra una captura específica dado su id" 
+  statement: 
+  		SELECT org.taller.atun.Atun
+  			WHERE (atunId == _$atunId ) 
+}
+
+query getCapturaHistory { 
+  description: "Mostrar todos las transacciones realizadas sobre una captura" 
+  statement: 
+  		SELECT org.taller.atun.transferirAtun
+  			WHERE (atunId == _$atunId ) 
+  				ORDER BY [timestamp]
+}
